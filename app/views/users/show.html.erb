@@ -1,3 +1,8 @@
-<h1 class="title">Profile</h1>
+<h1 class="title"><%= @user.login %> Profile</h1>
 <h2 class="username"><%= @user.name %></h2>
 <h2 class="location"><%= @user.location %></h2>
+<ul>
+<% @repos.each do |repo| %>
+  <li class="repo"><%= repo.name %></li>
+<% end %>
+</ul>

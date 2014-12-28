@@ -1,19 +1,34 @@
 require 'rails_helper'
 
 RSpec.describe "users/show.html.erb", :type => :view do
-  let(:user) { double(name: "Matt Baker", location: "Bay Area") }
+  let(:user) { double(login: "mattbaker", name: "Matt Baker", location: "Bay Area") }
+  let(:repo1) { double(name: "Repo 1") }
+  let(:repo2) { double(name: "Repo 2") }
+  let(:repo3) { double(name: "Repo 3") }
+  let(:repos) { [repo1, repo2, repo3] }
 
   before :each do
     assign(:user, user)
+    assign(:repos, repos)
     render
   end
 
   it "should display the correct title" do
-    assert_select "h1", "Profile"
+    assert_select "h1", "#{user.login} Profile"
   end
 
   it "should display the user's information" do
     assert_select ".username", text: user.name
     assert_select ".location", text: user.location
+  end
+
+  it "should display the correct number of the user's repos" do
+    assert_select "li.repo", 3
+  end
+
+  it "should display all repos with the correct name" do
+    assert_select "li", text: repo1.name
+    assert_select "li", text: repo2.name
+    assert_select "li", text: repo3.name
   end
 end
