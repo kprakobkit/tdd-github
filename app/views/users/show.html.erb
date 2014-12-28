@@ -2,7 +2,10 @@
 <h2 class="username"><%= @user.name %></h2>
 <h2 class="location"><%= @user.location %></h2>
 <ul>
-<% @repos.each do |repo| %>
-  <li class="repo"><%= repo.name %></li>
+  <% @repos.each do |repo| %>
+    <li class="repo"><%= repo.name %></li>
+  <ul>
+    <li class="watcher-count"><%= repo.watchers %></li>
+  </ul>
 <% end %>
 </ul>

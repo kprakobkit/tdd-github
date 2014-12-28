@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:username])
-    @repo = @user.repos
+    @repos = @user.repos
   end
 end
