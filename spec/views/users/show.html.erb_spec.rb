@@ -14,6 +14,6 @@ RSpec.describe "users/show.html.erb", :type => :view do
 
   it "should display the user's information" do
     assert_select ".username", text: user.name
-    assert_select ".location", text: user.locatio
+    assert_select ".location", text: user.location
   end
 end
