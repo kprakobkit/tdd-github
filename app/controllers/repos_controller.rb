@@ -6,4 +6,8 @@ class ReposController < ApplicationController
       format.js { }
     end
   end
+
+  def show
+    @repo = Repo.find(params[:username], params[:repo])
+  end
 end

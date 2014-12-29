@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'users/:username' => 'users#show'
+  get 'repo/:username/:repo' => 'repos#show'
   post 'repos' => 'repos#create'
 
   # The priority is based upon order of creation: first created -> highest priority.

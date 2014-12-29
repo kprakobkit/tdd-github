@@ -1,5 +1,9 @@
 class Repo
   attr_reader :events
+  def self.find(username, repo)
+    Util.get_response("repos/#{username}/#{repo}")
+  end
+
   def initialize(username, data)
     create_methods(data)
     @events = get_repo_events(username, self.name)
