@@ -3,7 +3,6 @@ var newRepo = $('<li></li>')
 .html("<%= @repo['name'] %>");
 
 var list = $('<ul></ul>');
-
 var watchCount = $('<li></li>')
 .addClass("watcher-count")
 .html("<%= @repo['watchers'] %>");

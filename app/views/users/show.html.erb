@@ -8,11 +8,11 @@
   <% end %>
 <% end %>
 <ul class="repos">
-  <% @repos.each do |repo| %>
+<% @repos.each do |repo| %>
     <li class="repo"><%= repo.name %>
-  <ul>
-      <li class="watcher-count"><%= repo.watchers %></li>
-    </ul>
+      <ul>
+        <li class="watcher-count"><%= repo.watchers %></li>
+      </ul>
     </li>
 <% end %>
 </ul>
