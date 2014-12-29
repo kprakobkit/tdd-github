@@ -5,6 +5,10 @@ class User
     self.new(username)
   end
 
+  def self.current
+    Util.get_response("user")["login"]
+  end
+
   def initialize(username)
     @username = username
     @repos = get_user_repos

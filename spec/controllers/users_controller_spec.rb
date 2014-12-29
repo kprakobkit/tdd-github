@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe UsersController, :type => :controller do
 
   describe "GET show" do
-    let(:user) { { name: "Matt Baker" } }
+    let(:repo) { double(name: "repo") }
+    let(:user) { double(name: "Matt Baker", repos: [repo]) }
 
     before :each do
       allow(User).to receive(:find).and_return(user)
@@ -22,5 +23,4 @@ RSpec.describe UsersController, :type => :controller do
       expect(assigns(:user)).to eq user
     end
   end
-
 end
