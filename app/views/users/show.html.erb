@@ -1,11 +1,18 @@
 <h1 class="title"><%= @user.login %> Profile</h1>
 <h2 class="username"><%= @user.name %></h2>
 <h2 class="location"><%= @user.location %></h2>
-<ul>
+<% if @current_user == @user.login %>
+  <%= form_for :repo, url: { controller: "repos", action: "create" }, html: { class: "new-repo" }, remote: true do |f| %>
+  <%= f.text_field :name %>
+<%= f.submit "Submit" %>
+  <% end %>
+<% end %>
+<ul class="repos">
   <% @repos.each do |repo| %>
-    <li class="repo"><%= repo.name %></li>
+    <li class="repo"><%= repo.name %>
   <ul>
-    <li class="watcher-count"><%= repo.watchers %></li>
-  </ul>
+      <li class="watcher-count"><%= repo.watchers %></li>
+    </ul>
+    </li>
 <% end %>
 </ul>

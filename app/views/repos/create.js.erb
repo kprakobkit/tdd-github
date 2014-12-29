@@ -1,0 +1,16 @@
+var newRepo = $('<li></li>')
+.addClass("repo")
+.html("<%= @repo['name'] %>");
+
+var list = $('<ul></ul>');
+
+var watchCount = $('<li></li>')
+.addClass("watcher-count")
+.html("<%= @repo['watchers'] %>");
+
+var repo = newRepo.append(list.append(watchCount));
+var $repoContainer = $('.repos');
+$repoContainer.append(repo);
+
+
+
