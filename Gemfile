@@ -29,6 +29,7 @@ gem 'rspec-rails'
 
 # Rspec
 gem 'capybara'
+gem 'selenium-webdriver' # for testing javascript
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
